@@ -1,6 +1,9 @@
 from sys import stdin
 
 def processCase(list):
+	if len(list) is 0:
+		return "no"
+
 	time_list = {
 		10: 5,
 		5: 2,
@@ -17,14 +20,14 @@ def processCase(list):
 		candy += val
 		time += time_list.get(val)
 
-	return 0 if (candy == time == 0) else (str(candy) + " " + str(time))
+	return (str(candy) + " " + str(time))
 
 def processAll():
 	line = stdin.readline()
 	while line:
 		parsed = line.split(" ")
 		out = processCase(parsed[1:])
-		if out != 0:
+		if out != "no":
 			print(out)
 
 		# get next data set 
